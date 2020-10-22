@@ -1,0 +1,22 @@
+{
+    "name": "seu-newids-login",
+    "version": "1.0.0",
+    "description": "",
+    "main": "orderByTime.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "cheerio": "^1.0.0-rc.3",
+        "fs": "0.0.1-security",
+        "got": "^11.7.0",
+        "hpagent": "^0.1.1",
+        "image-output": "^2.4.2",
+        "image-pixels": "^2.2.2",
+        "moment": "^2.29.1",
+        "stream": "0.0.2"
+    }
+}
