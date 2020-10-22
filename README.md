@@ -70,3 +70,11 @@ const orderItemMap = {
 };
 ```
 
+e.g. When you(id: 213140001, password: 123456) want to order a badminton court at 18:00-19:00 on 2020-10-24, you can run this command:
+```dos
+ node ./orderByTime.js 213140001 123456 2020-10-24 6 羽毛球
+```
+
+
+## Note
+We won't collect your password, the password is only for order a court. Please don't worry.
