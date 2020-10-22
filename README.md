@@ -26,9 +26,12 @@ Afterwards, you can start the project by using this command:
 node ./orderByTime.js YourIdNumber YourPassword OrderDate OrderTimeIndex OrderItem
 ```
 
-**YourIdNumber** is a 9 digit e-card number
-**YourPassword** is the unified authentication password of your e-card (Same as your password for login to my.seu.edu.cn)
+**YourIdNumber** is a 9 digit e-card number.
+
+**YourPassword** is the unified authentication password of your e-card (Same as your password for login to my.seu.edu.cn).
+
 **OrderDate** is the date that you want to use the gym, you should type the date in `YYYY-MM-DD` (like 2020-10-24).
+
 **OrderTime** is the time that you want to use the gym, here is the index of time and the argument. That means when you want to order a court of 18:00-19:00, you should set this argument to 6.
 ```js
 const orderTimes = {
