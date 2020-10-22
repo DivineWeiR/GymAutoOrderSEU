@@ -2,17 +2,15 @@ const gymAutoOrder = require("./gymAutoOrderGot");
 const chalk = require("chalk");
 const moment = require("moment");
 
-// const config = {
-//     username: "213141145",
-//     password: "weiran0507",
-//     orderDate: "2020-10-21",
-//     orderTime: "18:00-19:00",
-//     orderItem: "羽毛球",
-// };
-
 const orderTimes = {
-    11: "11:30-12:30",
-    12: "12:30-13:30",
+    11.5: "11:30-12:30",
+    12.5: "12:30-13:30",
+    9: "09:00-10:00",
+    10: "10:00-11:00",
+    11: "11:00-12:00",
+    12: "12:00-13:00",
+    1: "13:00-14:00",
+    2: "14:00-15:00",
     3: "15:00-16:00",
     4: "16:00-17:00",
     5: "17:00-18:00",
@@ -38,7 +36,7 @@ let timeFormat = "YYYY-MM-DD h:mm";
 config = {
     username: arguments[0],
     password: arguments[1],
-    orderDate: `2020-10-${arguments[2]}`,
+    orderDate: `${arguments[2]}`,
     orderTime: orderTimes[arguments[3]],
     orderItem: arguments[4] || "羽毛球",
 };
