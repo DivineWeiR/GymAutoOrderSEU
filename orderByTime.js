@@ -31,7 +31,7 @@ function sleep(time) {
 
 console.log(process.argv);
 let arguments = process.argv.splice(2);
-let timeFormat = "YYYY-MM-DD h:mm";
+let timeFormat = "YYYY-MM-DD H:mm:ss";
 // console.log(arguments);
 config = {
     username: arguments[0],
@@ -65,6 +65,11 @@ async function runOrderProcess() {
         await sleep((7 - now.hour()) * 3600);
         now = moment();
     }
+    if (now.minute() < loginTime.minute() - 1) {
+        console.log(`${chalk.blueBright.bold(`睡眠${59 - now.minute()}min`)}`);
+        await sleep((59 - now.minute()) * 60);
+        now = moment();
+    }
 
     while (now.isBefore(loginTime)) {
         await sleep(1);
@@ -74,6 +79,7 @@ async function runOrderProcess() {
             现在时间${now.format(timeFormat)}
             预约时间${targetTime.format(timeFormat)}`)}`
         );
+        now = moment();
     }
     let success = false;
     while (
