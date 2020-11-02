@@ -17,24 +17,24 @@ const headers = {
 };
 const options = {
     method: "GET",
-    agent: {
-        https: new HttpsProxyAgent({
-            keepAlive: true,
-            keepAliveMsecs: 1000,
-            maxSockets: 256,
-            maxFreeSockets: 256,
-            scheduling: "lifo",
-            proxy: "http://localhost:8888",
-        }),
-        http: new HttpProxyAgent({
-            keepAlive: true,
-            keepAliveMsecs: 1000,
-            maxSockets: 256,
-            maxFreeSockets: 256,
-            scheduling: "lifo",
-            proxy: "http://localhost:8888",
-        }),
-    },
+    // agent: {
+    //     https: new HttpsProxyAgent({
+    //         keepAlive: true,
+    //         keepAliveMsecs: 1000,
+    //         maxSockets: 256,
+    //         maxFreeSockets: 256,
+    //         scheduling: "lifo",
+    //         proxy: "http://localhost:8888",
+    //     }),
+    //     http: new HttpProxyAgent({
+    //         keepAlive: true,
+    //         keepAliveMsecs: 1000,
+    //         maxSockets: 256,
+    //         maxFreeSockets: 256,
+    //         scheduling: "lifo",
+    //         proxy: "http://localhost:8888",
+    //     }),
+    // },
 };
 const pipeline = promisify(stream.pipeline);
 
@@ -104,6 +104,10 @@ async function gymAutoOrder(config, startProcess = 0) {
         }
         if (startProcess <= 2) {
             console.log(`${chalk.blueBright.bold("开始获取验证码...")}`);
+            let validateDirExists = fs.existsSync("Validate");
+            if(!validateDirExists){
+                fs.mkdirSync("Validate");
+            }
             let filepath = `Validate/validate${formData.username}.jpg`;
             let stream = fs.createWriteStream(filepath);
             headers.Referer = url;
