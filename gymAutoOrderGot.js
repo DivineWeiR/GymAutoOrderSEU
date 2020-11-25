@@ -214,10 +214,11 @@ async function gymAutoOrder(config, startProcess = 0) {
     } catch (error) {
         // if(error.response.statusCode === 302)
         console.log(
-            `${chalk.red.bold("请求")} ${chalk.redBright.bold(
+            `【${chalk.red(moment().format('YYYY-MM-DD HH:mm:ss'))}】${chalk.red.bold("请求")} ${chalk.redBright.bold(
                 url
             )} ${chalk.red.bold("时发生错误，错误原因：")} ${chalk.red(error)}`
         );
+        console.table(error);
         return false;
     }
 }
