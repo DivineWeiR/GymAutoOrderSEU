@@ -13,7 +13,7 @@ We have multiple options for users to choose their own sport item. Such as badmi
 
 First of all, clone or download zip of this project.
 **Make sure that Nodejs has already been installed on your device.**
-
+~~~~
 Then use `npm` to install all the needed package.
 You can use this command to install:
 ```dos
@@ -23,10 +23,10 @@ npm install
 ### Order
 Afterwards, you can start the project by using this command:
 ```dos
-node ./orderByTime.js YourIdNumber YourPassword OrderDate OrderTimeIndex OrderItem
+node ./orderByTime.js -u YourIdNumber -p YourPassword -d OrderDate -t OrderTimeIndex -i OrderItem
 ```
 
-**YourIdNumber** is a 9 digit e-card number.
+**YourIdNumber** is a 9 digit e-card number (like 213200001).
 
 **YourPassword** is the unified authentication password of your e-card (Same as your password for login to my.seu.edu.cn).
 

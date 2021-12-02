@@ -35,7 +35,7 @@ const argv = require("yargs")
     })
     .usage("Usage: orderByTime.js [options]")
     .example(
-        "orderByTime.js -i 213200001 -p 123456 -d 2020-11-01 -t 6 -w 羽毛球",
+        "orderByTime.js -u 213200001 -p 123456 -d 2020-11-01 -t 6 -i 羽毛球",
         "预定2020-11-01日晚上6点-7点的羽毛球场地"
     )
     .help("h")
@@ -69,9 +69,6 @@ function sleep(time) {
     });
 }
 
-// console.log(process.argv);
-// let arguments = process.argv.splice(2);
-// let arguments = argv.splice(2);
 let timeFormat = "YYYY-MM-DD H:mm:ss";
 config = {
     username: argv.u,
@@ -80,14 +77,6 @@ config = {
     orderTime: orderTimes[argv.t],
     orderItem: argv.i,
 };
-// console.log(arguments);
-// config = {
-//     username: arguments[0],
-//     password: arguments[1],
-//     orderDate: `${arguments[2]}`,
-//     orderTime: orderTimes[arguments[3]],
-//     orderItem: arguments[4] || "羽毛球",
-// };
 console.log(config);
 async function runOrderProcess() {
     let isPreMode = false;
@@ -100,35 +89,6 @@ async function runOrderProcess() {
 
     console.log(loginTime.date() - now.date());
     console.log(logoutTime - loginTime);
-
-    // while (now.date() < loginTime.date()) {
-    //     isPreMode = true;
-    //     console.log(`${chalk.blueBright.bold(`睡眠8h`)}`);
-    //     await sleep(8 * 3600);
-    //     now = moment();
-    // }
-
-    // if (now.hour() < loginTime.hour() - 1) {
-    //     console.log(`${chalk.blueBright.bold(`睡眠${7 - now.hour()}h`)}`);
-    //     await sleep((7 - now.hour()) * 3600);
-    //     now = moment();
-    // }
-    // if (now.minute() < loginTime.minute() - 1) {
-    //     console.log(`${chalk.blueBright.bold(`睡眠${59 - now.minute()}min`)}`);
-    //     await sleep((59 - now.minute()) * 60);
-    //     now = moment();
-    // }
-
-    // while (now.isBefore(loginTime)) {
-    //     await sleep(1);
-    //     console.log(
-    //         `${chalk.blueBright.bold(`
-    //         登录时间${loginTime.format(timeFormat)}
-    //         现在时间${now.format(timeFormat)}
-    //         预约时间${targetTime.format(timeFormat)}`)}`
-    //     );
-    //     now = moment();
-    // }
 
     if (now.valueOf() < loginTime.valueOf()) {
         let difference = loginTime.diff(now, "second");

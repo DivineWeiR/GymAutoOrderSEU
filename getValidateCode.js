@@ -95,13 +95,8 @@ async function getResultFromImage(url) {
     let bData = await loadImage(url);
     let nums = await getNums(bData);
 
-    // console.log(nums);
     return nums;
 }
 
-// loadImage("validate.jpg");
-// loadImage("Models/1.jpg");
-
-getResultFromImage("validate.jpg");
 
 module.exports = getResultFromImage;
